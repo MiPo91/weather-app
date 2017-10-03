@@ -57,35 +57,10 @@ namespace eKoodi.Utilities.Test
             string url = string.Empty;
             if(type == "2")
             {
-                DateTime fileUpdated = File.GetLastWriteTime("C:\\dev\\weather-app\\" + JsonFiles("2"));
-                DateTime timeNow = DateTime.Now;
-                TimeSpan span = timeNow.Subtract(fileUpdated);
-
-                int differenceInMinutes;
-                int.TryParse(span.Minutes.ToString(), out differenceInMinutes);
-
-                if (differenceInMinutes < 180)
-                {
-                    Console.WriteLine("Displaying old resurt as it's less than 3 hours old.");
-                    return "";
-                }
-
-                url = "http://api.openweathermap.org/data/2.5/forecast?q="+ city +","+ country + "&appid=c2d646c8555f1b4df7bb255df791dce1&units=metric&cnt=7";
+                url = "http://api.openweathermap.org/data/2.5/forecast?q="+ city +","+ country + "&appid=c2d646c8555f1b4df7bb255df791dce1&units=metric&cnt=5";
             }
             else
             {
-                DateTime fileUpdated = File.GetLastWriteTime("C:\\dev\\weather-app\\" + JsonFiles("1"));
-                DateTime timeNow = DateTime.Now;
-                TimeSpan span = timeNow.Subtract(fileUpdated);
-
-                int differenceInMinutes;
-                int.TryParse(span.Minutes.ToString(), out differenceInMinutes);
-
-                if(differenceInMinutes < 10) {
-                    Console.WriteLine("Displaying old resurt as it's less than 10 minutes old.");
-                    return "";
-                }
-
                 url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + country + "&appid=c2d646c8555f1b4df7bb255df791dce1&units=metric";
             }
             
@@ -121,6 +96,7 @@ namespace eKoodi.Utilities.Test
                 }
                 else
                 {
+                    Console.WriteLine("Invalid Query");
                     return "Fail";
                 }
             }

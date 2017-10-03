@@ -8,7 +8,7 @@ namespace weather_app
 
         static void Main()
         {
-            Console.WriteLine("Select Option: 1. Weather Now, 2. Weather next 7 days.");
+            Console.WriteLine("Select Option: 1. Weather Now, 2. Weather next 5 days.");
             string type = Console.ReadLine();
             Console.WriteLine("Give city name, ex. london");
             string city = Console.ReadLine();
